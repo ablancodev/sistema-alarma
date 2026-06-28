@@ -21,6 +21,9 @@ __pycache__/
 *.pyc
 *.pyo
 
+# Borradores / notas (no públicos)
+blog/
+
 # Sistema
 .DS_Store
 Thumbs.db
