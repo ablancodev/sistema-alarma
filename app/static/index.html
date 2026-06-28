@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Cámara de vigilancia</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: -apple-system, system-ui, sans-serif;
+      background: #111; color: #eee; text-align: center;
+    }
+    header { padding: 12px; font-size: 18px; font-weight: 600; }
+    #preview { width: 100%; max-height: 60vh; background: #000; object-fit: contain; }
+    .controls { padding: 16px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    button {
+      font-size: 16px; padding: 12px 20px; border: 0; border-radius: 10px;
+      background: #2d7; color: #022; font-weight: 700; min-width: 130px;
+    }
+    button.stop { background: #e44; color: #fff; }
+    button.ghost { background: #333; color: #eee; }
+    .camname { padding: 8px 16px; }
+    .camname label { font-size: 13px; color: #9ad; margin-right: 8px; }
+    .camname input { font-size: 16px; padding: 8px 10px; border-radius: 8px; border: 1px solid #444; background: #1b1b1b; color: #eee; width: 60%; max-width: 260px; }
+    #status { padding: 10px; font-size: 14px; min-height: 22px; }
+    #log { padding: 0 16px 24px; font-size: 13px; color: #9ad; text-align: left; }
+    .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #555; margin-right: 6px; }
+    .dot.on { background: #2d7; }
+    .dot.motion { background: #fb3; }
+  </style>
+</head>
+<body>
+  <header>📷 Cámara de vigilancia</header>
+  <div class="camname">
+    <label for="camName">Nombre de esta cámara:</label>
+    <input id="camName" type="text" placeholder="ej. salón, entrada, garaje" autocapitalize="off" autocomplete="off">
+  </div>
+  <video id="preview" autoplay muted playsinline></video>
+  <div class="controls">
+    <button id="startBtn">Iniciar</button>
+    <button id="stopBtn" class="stop" hidden>Detener</button>
+    <button id="baselineBtn" class="ghost">Fijar escena</button>
+  </div>
+  <div id="status"><span class="dot" id="dot"></span><span id="statusText">Detenido</span></div>
+  <div id="log"></div>
+  <canvas id="canvas" hidden></canvas>
+  <script src="app.js"></script>
+</body>
+</html>

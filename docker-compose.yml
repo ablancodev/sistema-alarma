@@ -1,0 +1,29 @@
+services:
+  app:
+    build: ./app
+    ports:
+      - "8000:8000"
+    env_file: .env
+    environment:
+      # Se incrustan en el certificado autofirmado que genera el contenedor.
+      CERT_HOST: ${LAN_HOST:-localhost}
+      CERT_IP: ${LAN_IP:-127.0.0.1}
+    volumes:
+      - data:/data
+      - certs:/certs
+    restart: unless-stopped
+
+  # Solo se levanta con: docker compose --profile ai up
+  ollama:
+    image: ollama/ollama:latest
+    profiles: ["ai"]
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    restart: unless-stopped
+
+volumes:
+  data:
+  certs:
+  ollama_models:

@@ -1,0 +1,26 @@
+# Secretos y configuración local (NUNCA subir)
+.env
+*.env
+!.env.example
+
+# Certificados TLS (clave privada)
+certs/
+*.pem
+*.key
+
+# Datos en runtime (imágenes capturadas + base de datos)
+data/
+
+# Config local del agente / IDE (puede contener tokens)
+.claude/
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Sistema
+.DS_Store
+Thumbs.db
