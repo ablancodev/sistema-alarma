@@ -1,4 +1,4 @@
-<h1 align="center">📷 Sistema de Alarma · Vigilancia con IA local</h1>
+<h1 align="center">Sistema de Alarma · Vigilancia con IA local</h1>
 
 <p align="center">
   Convierte un <b>móvil viejo</b> en una cámara de vigilancia que detecta movimiento
@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  <img alt="local-first" src="https://img.shields.io/badge/local--first-✓-brightgreen">
+  <img alt="local-first" src="https://img.shields.io/badge/local--first-yes-brightgreen">
   <img alt="docker" src="https://img.shields.io/badge/docker-compose-blue">
   <img alt="python" src="https://img.shields.io/badge/python-3.12-yellow">
   <img alt="license" src="https://img.shields.io/badge/license-MIT-lightgrey">
@@ -16,14 +16,14 @@
 
 ---
 
-## ✨ ¿Qué es?
+## ¿Qué es?
 
 Un sistema de videovigilancia casero hecho con cosas que ya tienes:
 
-- 📱 Un **móvil antiguo** (iPhone/Android) como cámara — vía web, sin instalar apps.
-- 🖥️ Un **ordenador** (Mac/PC, incluso viejo) como cerebro, en Docker.
-- 🧠 **IA local opcional** (Ollama) que describe lo que ve la cámara.
-- 📲 **Alertas a Telegram** con foto y descripción.
+- Un **móvil antiguo** (iPhone/Android) como cámara — vía web, sin instalar apps.
+- Un **ordenador** (Mac/PC, incluso viejo) como cerebro, en Docker.
+- **IA local opcional** (Ollama) que describe lo que ve la cámara.
+- **Alertas a Telegram** con foto y descripción.
 
 Todo el núcleo (captura, detección de movimiento, IA) funciona **sin internet**.
 Solo el envío de la notificación necesita conexión.
@@ -34,7 +34,7 @@ Solo el envío de la notificación necesita conexión.
 
 ---
 
-## 🧩 Cómo funciona
+## Cómo funciona
 
 <p align="center">
   <img src="docs/architecture.png" alt="Arquitectura del sistema" width="820">
@@ -54,7 +54,7 @@ está casi siempre ocioso y solo "piensa" cuando pasa algo.
 
 ---
 
-## 🚀 Puesta en marcha
+## Puesta en marcha
 
 **Requisitos:** [Docker](https://www.docker.com/) y, para la IA, [Ollama](https://ollama.com/)
 (se levanta como contenedor incluido).
@@ -88,19 +88,19 @@ Luego, en el móvil que hará de cámara:
 3. (Opcional) ponle un **nombre a la cámara** (Salón, Garaje…).
 4. Pulsa **Iniciar**, permite el acceso a la cámara y déjalo enchufado en primer plano.
 
-> #### 🔐 Verás un aviso de "conexión no privada" — y es normal ✅
+> #### Verás un aviso de "conexión no privada" — y es normal
 > El servidor usa un certificado **propio (autofirmado)** dentro de tu red, así que el
 > navegador muestra un aviso. Pulsa **"Avanzado" → "Acceder de todos modos"** (en Safari:
 > **"Mostrar detalles" → "Visitar este sitio web"**). No es ningún riesgo: es **tu**
 > servidor en **tu** red. Ese certificado solo existe porque los navegadores exigen
 > HTTPS para poder usar la cámara.
 >
-> ℹ️ En iOS, mantén la pantalla encendida (la app usa *Wake Lock*) y el navegador en
+> En iOS, mantén la pantalla encendida (la app usa *Wake Lock*) y el navegador en
 > primer plano: iOS pausa las webs en segundo plano.
 
 ---
 
-## 📲 Alertas por Telegram
+## Alertas por Telegram
 
 1. En Telegram, habla con **@BotFather** → `/newbot` → copia el **token**.
 2. Escríbele un mensaje a tu nuevo bot y obtén tu **chat id** con **@userinfobot**.
@@ -110,16 +110,16 @@ Luego, en el móvil que hará de cámara:
 
 ---
 
-## 🎥 Multi-cámara
+## Multi-cámara
 
 Varios móviles pueden vigilar zonas distintas contra el mismo servidor. Cada uno
 pone su **nombre** en la web (o `?cam=salon` en la URL) y el servidor mantiene, por
 cámara: su referencia, sus eventos y su **cooldown propio**. Las alertas indican la
-zona: *"🔔 Movimiento en SALÓN"*.
+zona: *"Movimiento en SALÓN"*.
 
 ---
 
-## ⚙️ Configuración (`.env`)
+## Configuración (`.env`)
 
 | Variable | Por defecto | Qué hace |
 |---|---|---|
@@ -137,7 +137,7 @@ zona: *"🔔 Movimiento en SALÓN"*.
 
 ---
 
-## 🔒 Privacidad
+## Privacidad
 
 - Las imágenes se procesan y guardan **en tu propio servidor**, nunca en la nube.
 - La IA es **local** (Ollama): las fotos no salen de tu red para ser interpretadas.
@@ -145,7 +145,7 @@ zona: *"🔔 Movimiento en SALÓN"*.
 
 ---
 
-## ⚠️ Limitaciones conocidas
+## Limitaciones conocidas
 
 - iOS suspende el JavaScript en segundo plano → usa un móvil **dedicado y enchufado**.
 - La IA en CPU (sin GPU) es lenta (~decenas de segundos/imagen); por eso la
@@ -154,7 +154,7 @@ zona: *"🔔 Movimiento en SALÓN"*.
 
 ---
 
-## 🗺️ Roadmap / ideas
+## Roadmap / ideas
 
 - Panel web multi-cámara con histórico.
 - Guardar solo el fotograma que dispara la alerta (ahorro de disco).
@@ -163,8 +163,8 @@ zona: *"🔔 Movimiento en SALÓN"*.
 
 ---
 
-## 📄 Licencia
+## Licencia
 
 [MIT](LICENSE) — úsalo, modifícalo y compártelo libremente.
 
-<p align="center"><sub>Hecho reutilizando hardware viejo ♻️ · Contribuciones bienvenidas</sub></p>
+<p align="center"><sub>Hecho reutilizando hardware viejo · Contribuciones bienvenidas</sub></p>
