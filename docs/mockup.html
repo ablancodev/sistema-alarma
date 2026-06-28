@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- Mockup SOLO para la captura del README. Foto del salón: Famartin, CC BY-SA 4.0 (Wikimedia Commons). -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, system-ui, sans-serif; background: #111; color: #eee; text-align: center; }
+  header { padding: 12px; font-size: 18px; font-weight: 600; }
+  .camname { padding: 8px 16px; }
+  .camname label { font-size: 13px; color: #9ad; margin-right: 8px; }
+  .camname input { font-size: 16px; padding: 8px 10px; border-radius: 8px; border: 1px solid #444; background: #1b1b1b; color: #eee; width: 60%; max-width: 260px; }
+  .preview { position: relative; width: 100%; height: 300px; background: #000; overflow: hidden; }
+  .preview img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .rec { position: absolute; top: 10px; left: 10px; display: flex; align-items: center; gap: 6px;
+         background: rgba(0,0,0,.55); color: #fff; font-size: 13px; padding: 4px 9px; border-radius: 6px; }
+  .rec .led { width: 9px; height: 9px; border-radius: 50%; background: #e44; }
+  .ts { position: absolute; bottom: 8px; right: 10px; color: #fff; font-size: 12px;
+        background: rgba(0,0,0,.5); padding: 2px 7px; border-radius: 5px; font-variant-numeric: tabular-nums; }
+  .det { position: absolute; border: 3px dashed #ffd23f; border-radius: 4px; }
+  .det span { position: absolute; top: -22px; left: 0; background: #ffd23f; color: #222; font-size: 11px; font-weight: 700; padding: 1px 6px; border-radius: 4px; }
+  .controls { padding: 16px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  button { font-size: 16px; padding: 12px 20px; border: 0; border-radius: 10px; font-weight: 700; min-width: 130px; }
+  .stop { background: #e44; color: #fff; }
+  .ghost { background: #333; color: #eee; }
+  #status { padding: 10px; font-size: 14px; }
+  #log { padding: 0 16px 18px; font-size: 13px; color: #9ad; text-align: left; line-height: 1.5; }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #fb3; margin-right: 6px; }
+</style>
+</head>
+<body>
+  <header>📷 Cámara de vigilancia</header>
+  <div class="camname">
+    <label>Nombre de esta cámara:</label>
+    <input type="text" value="Salón">
+  </div>
+
+  <div class="preview">
+    <img src="room.jpg" alt="Salón">
+  </div>
+
+  <div class="controls">
+    <button class="stop">Detener</button>
+    <button class="ghost">Fijar escena</button>
+  </div>
+  <div id="status"><span class="dot"></span>¡Movimiento! 7% — Vigilando "Salón"…</div>
+  <div id="log">[21:06:12] Movimiento 7% — <i>a living room with sofas and a coffee table</i> (Telegram enviado)<br>[21:06:03] Vigilando…</div>
+</body>
+</html>

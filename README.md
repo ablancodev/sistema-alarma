@@ -36,14 +36,9 @@ Solo el envío de la notificación necesita conexión.
 
 ## 🧩 Cómo funciona
 
-```
- Móvil (PWA)  ──foto cada X s──►  Servidor (Docker)
-                                   │
-                                   ├─ FastAPI : recibe la imagen
-                                   ├─ OpenCV  : ¿hay movimiento? (resta de imágenes)
-                                   ├─ Ollama  : ¿qué es? (solo si el cambio supera un umbral)
-                                   └─ Telegram: 📲 foto + descripción
-```
+<p align="center">
+  <img src="docs/architecture.png" alt="Arquitectura del sistema" width="820">
+</p>
 
 **Pipeline de dos etapas:** primero un filtro de movimiento barato (OpenCV); la IA
 —que es lo costoso— solo se ejecuta cuando el cambio supera un umbral. Así el sistema
@@ -83,14 +78,25 @@ docker compose exec ollama ollama pull moondream
 
 Luego, en el móvil que hará de cámara:
 
-1. Conéctalo a la **misma WiFi** que el servidor.
-2. Abre en el navegador `https://<IP-DEL-SERVIDOR>:8000/` (incluye el `https://`).
-3. Acepta el aviso del certificado autofirmado.
-4. (Opcional) ponle un **nombre a la cámara** (Salón, Garaje…).
-5. Pulsa **Iniciar**, da permiso a la cámara y déjalo enchufado en primer plano.
+<p align="center">
+  <img src="docs/pwa-ui.png" alt="Interfaz de la cámara (PWA)" width="300">
+  <br><sub>La interfaz de la cámara, vigilando (escena de ejemplo).</sub>
+</p>
 
-> ℹ️ La cámara web requiere **HTTPS** (por eso el certificado). En iOS, mantén la
-> pantalla encendida (la app usa Wake Lock) y el navegador en primer plano.
+1. Conéctalo a la **misma WiFi** que el servidor.
+2. Abre `https://<IP-DEL-SERVIDOR>:8000/` en el navegador (**escribe el `https://` a mano**).
+3. (Opcional) ponle un **nombre a la cámara** (Salón, Garaje…).
+4. Pulsa **Iniciar**, permite el acceso a la cámara y déjalo enchufado en primer plano.
+
+> #### 🔐 Verás un aviso de "conexión no privada" — y es normal ✅
+> El servidor usa un certificado **propio (autofirmado)** dentro de tu red, así que el
+> navegador muestra un aviso. Pulsa **"Avanzado" → "Acceder de todos modos"** (en Safari:
+> **"Mostrar detalles" → "Visitar este sitio web"**). No es ningún riesgo: es **tu**
+> servidor en **tu** red. Ese certificado solo existe porque los navegadores exigen
+> HTTPS para poder usar la cámara.
+>
+> ℹ️ En iOS, mantén la pantalla encendida (la app usa *Wake Lock*) y el navegador en
+> primer plano: iOS pausa las webs en segundo plano.
 
 ---
 
@@ -157,8 +163,11 @@ zona: *"🔔 Movimiento en SALÓN"*.
 
 ---
 
-## 📄 Licencia
+## 📄 Licencia y créditos
 
-[MIT](LICENSE) — úsalo, modifícalo y compártelo libremente.
+Código y documentación: [MIT](LICENSE) — úsalo, modifícalo y compártelo libremente.
+
+La foto de salón de la captura de demo es de **Famartin** ([CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/),
+vía Wikimedia Commons). Ver [docs/CREDITS.md](docs/CREDITS.md).
 
 <p align="center"><sub>Hecho reutilizando hardware viejo ♻️ · Contribuciones bienvenidas</sub></p>
