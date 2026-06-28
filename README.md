@@ -79,8 +79,8 @@ docker compose exec ollama ollama pull moondream
 Luego, en el móvil que hará de cámara:
 
 <p align="center">
-  <img src="docs/pwa-ui.png" alt="Interfaz de la cámara (PWA)" width="300">
-  <br><sub>La interfaz de la cámara, vigilando (escena de ejemplo).</sub>
+  <img src="docs/pwa-ui.jpg" alt="Interfaz de la cámara (PWA)" width="300">
+  <br><sub>La interfaz de la cámara funcionando en el móvil.</sub>
 </p>
 
 1. Conéctalo a la **misma WiFi** que el servidor.
@@ -163,11 +163,8 @@ zona: *"🔔 Movimiento en SALÓN"*.
 
 ---
 
-## 📄 Licencia y créditos
+## 📄 Licencia
 
-Código y documentación: [MIT](LICENSE) — úsalo, modifícalo y compártelo libremente.
-
-La foto de salón de la captura de demo es de **Famartin** ([CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/),
-vía Wikimedia Commons). Ver [docs/CREDITS.md](docs/CREDITS.md).
+[MIT](LICENSE) — úsalo, modifícalo y compártelo libremente.
 
 <p align="center"><sub>Hecho reutilizando hardware viejo ♻️ · Contribuciones bienvenidas</sub></p>
